@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn,} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column,} from "typeorm";
 
 @Entity ()
 export class book{
@@ -24,5 +24,10 @@ export class book{
     @Column()
     createDate: Date
 
+    @Column()
+    assessments: Number
+
+    @Column()
+    coverType: string
     
 }
