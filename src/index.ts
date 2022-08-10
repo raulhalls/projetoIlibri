@@ -40,7 +40,7 @@ AppDataSource.initialize()
     .catch((error) => console.log(error))
 
     const PORT = process.env.PORT ||  8000
-    const HOSTNAME = process.env.HOSTNAME ||"http://localhost/"
+    const HOSTNAME = process.env.HOSTNAME || "http://localhost/"
     const app = express()
     app.get("/", (req, res) => {
         res.send('Bem-vindo!')
