@@ -25,6 +25,6 @@ state: string
 Reader: reader[];
 
 @Column()
-reader_id: string
+reader_id: string 
 
 }

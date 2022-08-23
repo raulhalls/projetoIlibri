@@ -1,23 +1,12 @@
-//import { AppDataSource } from "../data-source";
-//import { book } from "../entity/book";
-
-
-//const name = new book()
-     // name.actor = "andressa symons"
-     // name.name = "O caso do assasino"
-    
-
-//await AppDataSource.manager.save(name)
-
-//console.log('chegooo');
 
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { adress } from "./entity/adress"
 import { book } from "./entity/book"
 import { reader } from "./entity/reader"
-import express from "express"
-import cors from "cors"
+import * as express from 'express';
+import * as bodyParser from "body-parser";
+import { author } from "./entity/author"
 
 
 const AppDataSource = new DataSource({
@@ -27,7 +16,7 @@ const AppDataSource = new DataSource({
     username: "postgres",
     password: "1234",
     database: "postgres",
-    entities: [book , reader , adress],
+    entities: [book , reader , adress , author],
     synchronize: true,
     logging: false,
 })
@@ -39,18 +28,16 @@ AppDataSource.initialize()
     })
     .catch((error) => console.log(error))
 
-    const PORT = process.env.PORT ||  8000
-    const HOSTNAME = process.env.HOSTNAME || "http://localhost/"
-    const app = express()
-    app.get("/", (req, res) => {
-        res.send('Bem-vindo!')
-    })
-    app.use(cors({
-        origin: ["http://localhost:3000/"]
-    }))
-    app.use((req, res) => {
-        res.status(404)
-    })
-    app.listen(PORT, () => {
-        console.log("Servidor rodando com sucesso ${HOSTNAME}:${PORT}")
-    })
+    const app: express.Application = express();
+    
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
+    
+    //app.use('/welcome', WelcomeController);
+    
+    const port = process.env.PORT || 3000;
+    
+    app.listen(port, () => {
+        console.log(`Listening at http://localhost: ${port} /`);
+    });
+

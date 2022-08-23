@@ -5,12 +5,15 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^16.11.47",
+    "concurrently": "^7.3.0",
+    "nodemon": "^2.0.19",
     "ts-node": "10.7.0",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.1.0",
     "typescript": "^4.5.2"
   },
   "dependencies": {
+    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "mysql": "^2.18.1",
