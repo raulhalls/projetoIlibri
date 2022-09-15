@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column,} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
 import { bookstore } from "./bookstore";
 
 @Entity ()
@@ -34,5 +34,7 @@ export class book{
     @Column()
     bookstoreId: number
 
-    
+    @ManyToOne(() => bookstore, (bookstore) => bookstore.bookstoreId)
+    bookstore: bookstore[];
+
 }

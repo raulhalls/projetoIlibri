@@ -1,6 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import { reader } from "./reader";
+import { bookstore } from "./bookstore";
+
 @Entity()
+
 export class adress{
 
 @PrimaryGeneratedColumn()
@@ -26,5 +29,11 @@ Reader: reader[];
 
 @Column()
 reader_id: string 
+
+@OneToMany(() => bookstore, (bookstore) => bookstore.bookstoreId)
+bookstore: bookstore[];
+
+@Column()
+bookstoreid: number
 
 }
