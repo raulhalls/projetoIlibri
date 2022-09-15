@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column,} from "typeorm";
+import { bookstore } from "./bookstore";
 
 @Entity ()
 export class book{
@@ -29,5 +30,9 @@ export class book{
 
     @Column()
     coverType: string
+
+    @Column()
+    bookstoreId: number
+
     
 }

@@ -7,6 +7,7 @@ import { reader } from "./entity/reader"
 import * as express from 'express';
 import * as bodyParser from "body-parser";
 import { author } from "./entity/author"
+import { bookstore } from "./entity/bookstore"
 
 
 const AppDataSource = new DataSource({
@@ -16,7 +17,7 @@ const AppDataSource = new DataSource({
     username: "postgres",
     password: "1234",
     database: "postgres",
-    entities: [book , reader , adress , author],
+    entities: [book , reader , adress , author , bookstore],
     synchronize: true,
     logging: false,
 })
