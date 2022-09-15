@@ -16,4 +16,7 @@ export class author {
     @Column()
     tipoLiterario: string
 
+    @Column()
+    document: number
+
 }
